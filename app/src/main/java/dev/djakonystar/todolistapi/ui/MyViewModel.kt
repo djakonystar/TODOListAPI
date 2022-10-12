@@ -46,8 +46,8 @@ class MyViewModel : ViewModel() {
                 val response = apiService.login(user)
 
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        _login.value = NetworkResult.Success(it)
+                    response.body()?.let { login1: loginResponse ->
+                        _login.value = NetworkResult.Success(login1)
                     }
                 } else {
                     _login.value = NetworkResult.Error(response.message())

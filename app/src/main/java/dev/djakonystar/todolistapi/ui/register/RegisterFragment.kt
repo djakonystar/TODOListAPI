@@ -9,6 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import dev.djakonystar.todolistapi.R
+import dev.djakonystar.todolistapi.core.Constants
 import dev.djakonystar.todolistapi.core.NetworkResult
 import dev.djakonystar.todolistapi.data.models.request.Register
 import dev.djakonystar.todolistapi.databinding.FragmentRegisterBinding
@@ -49,7 +50,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
-                            navController.navigate(R.id.action_registerFragment_to_loginFragment)
+                            Constants.TOKEN = it.data?.token ?: ""
+                            navController.navigate(R.id.action_registerFragment_to_meFragment)
                         }
 
                         is NetworkResult.Error -> {

@@ -2,6 +2,7 @@ package dev.djakonystar.todolistapi.ui.me
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -78,7 +79,12 @@ class MeFragment : Fragment(R.layout.fragment_me) {
 
                     is NetworkResult.Success -> {
                         setLoading(false)
-                        navController.navigate(R.id.action_meFragment_to_registerFragment)
+                        Toast.makeText(
+                            requireContext(),
+                            "Deleted Successfully!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        navController.navigate(R.id.action_meFragment_to_loginFragment)
                     }
 
                     is NetworkResult.Error -> {

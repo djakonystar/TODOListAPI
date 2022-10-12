@@ -26,6 +26,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         navController = findNavController()
 
         binding.apply {
+            btnRegister.setOnClickListener {
+                navController.navigate(R.id.action_loginFragment_to_registerFragment)
+            }
+
             btnLogin.setOnClickListener {
                 val email = etEmail.text.toString()
                 val password = etPassword.text.toString()
