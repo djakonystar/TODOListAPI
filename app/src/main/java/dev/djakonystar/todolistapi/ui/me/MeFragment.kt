@@ -11,14 +11,14 @@ import com.google.android.material.snackbar.Snackbar
 import dev.djakonystar.todolistapi.R
 import dev.djakonystar.todolistapi.core.NetworkResult
 import dev.djakonystar.todolistapi.databinding.FragmentMeBinding
-import dev.djakonystar.todolistapi.ui.MyViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MeFragment : Fragment(R.layout.fragment_me) {
     private lateinit var binding: FragmentMeBinding
     private lateinit var navController: NavController
-    private val viewModel by lazy { MyViewModel() }
+    private val viewModel: MeViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
