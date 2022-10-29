@@ -27,7 +27,7 @@ val networkModule = module {
             .build()
     }
 
-    single {
+    single<ApiService> {
         get<Retrofit>(named("Retrofit1")).create(ApiService::class.java)
     }
 }
