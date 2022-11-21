@@ -10,15 +10,20 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import dev.djakonystar.todolistapi.R
 import dev.djakonystar.todolistapi.core.NetworkResult
+import dev.djakonystar.todolistapi.core.Settings
+import dev.djakonystar.todolistapi.data.retrofit.RetrofitService
 import dev.djakonystar.todolistapi.databinding.FragmentMeBinding
-import dev.djakonystar.todolistapi.ui.MyViewModel
+import dev.djakonystar.todolistapi.ui.update.UpdateViewModel
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MeFragment : Fragment(R.layout.fragment_me) {
     private lateinit var binding: FragmentMeBinding
     private lateinit var navController: NavController
-    private val viewModel by lazy { MyViewModel() }
+    private val viewModel: MeViewModel by viewModel() // by inject()
+    private val settings: Settings by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

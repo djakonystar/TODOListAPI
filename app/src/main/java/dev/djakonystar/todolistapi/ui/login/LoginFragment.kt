@@ -12,13 +12,14 @@ import dev.djakonystar.todolistapi.R
 import dev.djakonystar.todolistapi.core.Constants.TOKEN
 import dev.djakonystar.todolistapi.core.NetworkResult
 import dev.djakonystar.todolistapi.core.loginRequest
+import dev.djakonystar.todolistapi.data.retrofit.RetrofitService
 import dev.djakonystar.todolistapi.databinding.FragmentLoginBinding
-import dev.djakonystar.todolistapi.ui.MyViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var navController: NavController
-    private val viewModel by lazy { MyViewModel() }
+    private val viewModel: LoginViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

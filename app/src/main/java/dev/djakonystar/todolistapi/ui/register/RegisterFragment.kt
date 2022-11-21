@@ -12,13 +12,14 @@ import dev.djakonystar.todolistapi.R
 import dev.djakonystar.todolistapi.core.Constants
 import dev.djakonystar.todolistapi.core.NetworkResult
 import dev.djakonystar.todolistapi.data.models.request.Register
+import dev.djakonystar.todolistapi.data.retrofit.RetrofitService
 import dev.djakonystar.todolistapi.databinding.FragmentRegisterBinding
-import dev.djakonystar.todolistapi.ui.MyViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var navController: NavController
-    private val viewModel by lazy { MyViewModel() }
+    private val viewModel: RegisterViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
